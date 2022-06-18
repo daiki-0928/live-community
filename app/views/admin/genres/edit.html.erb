@@ -1,0 +1,12 @@
+<h1>ジャンル編集</h1>
+
+<%= form_with model: [:admin,@genre] do |f| %>
+ <div>
+   <label>ジャンル名</label>
+   <%= f.text_field :name %>
+  </div>
+
+  <div>
+   <%= f.submit '変更を保存' %>
+  </div>
+<% end %>
