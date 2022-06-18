@@ -25,3 +25,7 @@
 ## 主な利用シーン
 
 * 闘病の記録や、がんに関する情報を検索したり、投稿することができる。
+
+# 実装機能リスト
+
+* https://docs.google.com/spreadsheets/d/1cfdztBjm1yFL0ZDP7EdeO7MgBLtdQyM9w_RpbX1ngec/edit#gid=885378170
