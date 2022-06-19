@@ -3,7 +3,17 @@
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
+  def after_sign_in_path_for(resource)
+    user_path(resource)
+  end
+
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to user_path(user)
+  end
+
+　# GET /resource/sign_in
   # def new
   #   super
   # end

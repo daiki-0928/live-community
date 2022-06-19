@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'homes/top'
-  end
 devise_scope :user do
     post 'users/sign_up' => 'public/registrations#create'
     post 'users/guest_sign_in' => 'public/sessions#guest_sign_in'
@@ -31,12 +28,11 @@ namespace :admin do
 
  scope module: "public" do
       root to: "homes#top"
-      get "/users/my_page" => "users#show"
       get "/users/:id/confirm" => "users#confirm", as: "confirm"
-      patch "/users/:id/withdraw" => "users#withdraw", as: "withdarw"
+      patch "/users/:id/withdraw" => "users#withdraw", as: "withdraw"
       get "/genre/:id" => "genres#show"
       resources :users, only: [:index, :show, :edit, :update]
-      resources :posts, only: [:index, :show, :edit, :update, :destroy] do
+      resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
         resources :post_comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]
       end

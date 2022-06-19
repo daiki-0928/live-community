@@ -23,25 +23,27 @@
               </li>
 
             <% elsif user_signed_in? %>
-              <li class="d-flex align-items-center mr-5">
-                ようこそ、<%= user.name %>さん！
-              </li>
               <li class="mr-3">
                 <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-dark" %>
               </li>
               <li class="mr-3">
-                <%= link_to "マイページ", users_my_page_path, class: "btn btn-outline-dark" %>
+                <%= link_to "マイページ", user_path(current_user), class: "btn btn-outline-dark" %>
               </li>
               <li class="mr-3">
-                <%#= link_to "カート", cart_items_path, class: "btn btn-outline-dark" %>
+                <%= link_to "新規投稿", new_post_path, class: "btn btn-outline-dark" %>
               </li>
               <li class="mr-3">
-                <%#= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %>
+                <%#= link_to "ユーザー一覧",　users_path, class: "btn btn-outline-dark" %>
+              </li>
+
+              <li class="mr-3">
+                <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-dark" %>
               </li>
 
             <% else %>
               <li class="mr-3">
                 <%= link_to "投稿一覧", posts_path, class: "btn btn-outline-dark" %>
+              </li>
               <li class="mr-3">
                 <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-dark" %>
               </li>
