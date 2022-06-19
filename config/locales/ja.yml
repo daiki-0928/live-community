@@ -1,0 +1,14 @@
+ja:
+    enums:
+      user:
+        age:
+          ten: "10代"
+          twenty: "20代"
+          thirty: "30代"
+          forty: "40代"
+          fifty: "50代"
+          sixty: "60代"
+          seventy: "70代"
+          eighty: "80代"
+          ninety: "90代"
+          other: "その他"
