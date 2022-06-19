@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum age: { ten: 0, twenty: 1, thirty: 2, forty: 3, fifty: 4, sixty: 5, seventy: 6, eighty: 7, ninety: 8, other: 9 }
+
   validates :name, presence:true, length:{maximum:50}
   validates :email, presence:true, length:{maximum:100}
 end
