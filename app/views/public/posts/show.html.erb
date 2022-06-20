@@ -1,0 +1,28 @@
+<div class='container'>
+  <div class='flame row mt-3 test'>
+		<h2 class="heading text-center col-10 col-md-4 col-xl-3">投稿詳細</h2>
+		<table class='table col-12'>
+		  <tr>
+        <td>
+          <%= link_to(@post.user) do %>
+            <%#= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
+            <div class="post-show-name"><%= @post.user.name %></div>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= @post.title %></td>
+      </tr>
+      <tr>
+        <td><%= @post.body %></td>
+      </tr>
+      <tr>
+        <td>病気の種類：<%= @post.genre.name %></td>
+      </tr>
+
+      <% if @post.user == current_user %>
+        <td>
+          <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id} mr-5" %>
+          <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+        </td>
+      <% end %>
