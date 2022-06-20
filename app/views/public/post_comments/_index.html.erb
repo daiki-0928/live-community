@@ -1,0 +1,26 @@
+<% if post_comments.exists? %>
+  <table>
+    <tbody>
+        <% post_comments.each do |post_comment| %>
+        <tr>
+          <td>
+            <%= link_to user_path(post_comment.user) do %>
+              <%#= image_tag post_comment.user.get_profile_image, size: "30x30", class:"profile_image" %><br>
+              <div class="comment-user-name"><%= post_comment.user.name %></div>
+            <% end %>
+          </td>
+          <td class="w-100"><%= post_comment.comment %></td>
+          <td>
+            <% if post_comment.user == current_user %>
+              <div class="text-right">
+                <%= link_to "削除", post_post_comment_path(post, post_comment), method: :delete, class: "btn btn-danger btn-sm", remote: true %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>コメントはありません</p>
+<% end %>

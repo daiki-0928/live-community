@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= form_with(model:[post, post_comment], local: false) do |f| %>
+    <%= f.text_area :comment, rows:'5', placeholder: "コメントする", class: "w-100 comment-textarea" %>
+    <%= f.submit "送信する", class: "btn btn-lg btn-outline-dark" %>
+  <% end %>
+
+<% end %>

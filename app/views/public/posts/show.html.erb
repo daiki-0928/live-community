@@ -20,9 +20,29 @@
         <td>病気の種類：<%= @post.genre.name %></td>
       </tr>
 
+
+
       <% if @post.user == current_user %>
         <td>
           <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id} mr-5" %>
           <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
         </td>
       <% end %>
+
+  <div class="flame row mt-5 mb-3">
+    <h4 class="sub_heading mt-2">コメント</h4>
+    <div class="post-comments-index w-100">
+      <%= render "public/post_comments/index", post: @post, post_comments: @post_comments %>
+    </div>
+    <%#= paginate @post_comments, :param_name => "post_comment_page" %>
+
+    <span id="flash"></span> <!-- Flash message for jQuery -->
+    <div class="comments_error">
+      <%= render 'layouts/error_message', model: @post_comment %>
+    </div>
+    <div class="col-12">
+      <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,4 @@
+$('.comment-textarea').val("")
+$('.post-comments-index').html("<%= j(render 'public/post_comments/index', post: @post_comment.post, post_comments: @post_comments) %>")
+$('#flash').html('<strong><%= @message %></strong>')
+$('.comments_error').html("<%= j(render 'layouts/error_message', model: @post_comment) %>")

@@ -35,9 +35,8 @@
               <li class="mr-3">
                 <%= link_to "ユーザー一覧", users_path, class: "btn btn-outline-dark" %>
               </li>
-
               <li class="mr-3">
-                <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-outline-dark" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-dark" %>
               </li>
 
             <% else %>

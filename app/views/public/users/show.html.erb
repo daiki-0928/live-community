@@ -5,7 +5,11 @@
   <div class="customer-information mt-5">
     <div class="row" style="margin-left: 0; margin-right: 0;">
       <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
-      <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-primary" %>
+      <% if user_signed_in? %>
+        <% if current_user == @user %>
+          <td><%= link_to "編集する", edit_user_path(@user.id), class: "btn btn-primary" %></td>
+        <% end %>
+      <% end %>
     </div>
     <table class="col-7 table table-bordered mt-3 mb-5">
       <tr>

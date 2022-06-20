@@ -1,12 +1,13 @@
 class Public::UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:edit, :update, :confirm, :out]
 
   def index
     @users = User.all
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
+    @genres = Genre.all
   end
 
   def edit
@@ -14,11 +15,11 @@ class Public::UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
+     @user = User.find(params[:id])
     if @user.update(user_params)
-     redirect_to user_path(@user.id)
+      redirect_to user_path(@user), notice: "ユーザー情報を更新しました。"
     else
-     render :edit
+      render "edit"
     end
   end
 
