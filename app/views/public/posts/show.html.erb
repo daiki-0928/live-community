@@ -20,6 +20,20 @@
         <td>病気の種類：<%= @post.genre.name %></td>
       </tr>
 
+      <tr>
+        <td class="d-flex">
+          <div>いいね数：</div>
+          <div class="favorite_buttons_<%= @post.id %>">
+            <% if user_signed_in? %>
+              <%= render "public/favorites/btn", post: @post %>
+            <% else %>
+              <i class="fas fa-heart" aria-hidden="true"></i>
+              <%= @post.favorites.count %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+
 
 
       <% if @post.user == current_user %>
@@ -28,6 +42,7 @@
           <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
         </td>
       <% end %>
+    </table>
 
   <div class="flame row mt-5 mb-3">
     <h4 class="sub_heading mt-2">コメント</h4>
