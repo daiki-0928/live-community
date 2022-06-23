@@ -6,7 +6,7 @@
       <% @posts.each do |post| %>
        <div class="my-5 mx-1 text-right" style: 'width: 23%'>
          <%= link_to post_path(post), class: 'text-decoration-none' do %>
-          <%#= image_tag item.get_image(150,150) %>
+          <%= image_tag post.user.get_profile_image, size:'40x40', class:"profile_image" %>
           <p class="mt-2 text-center">
            <span style="color: #816F5B;"><%= post.user.name %></span><br />
            <span style="color: #816F5B;"><%= post.title %></span><br />

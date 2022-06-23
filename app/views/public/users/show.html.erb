@@ -2,6 +2,10 @@
 
  <h2 class="ml-5">マイページ</h2>
 
+ <div class="user-img-area pt-3 pb-3">
+      <%= image_tag @user.get_profile_image, size:'157x157', class:"profile_image d-block mx-auto" %>
+ </div>
+
   <div class="customer-information mt-5">
     <div class="row" style="margin-left: 0; margin-right: 0;">
       <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
@@ -11,6 +15,7 @@
         <% end %>
       <% end %>
     </div>
+
     <table class="col-7 table table-bordered mt-3 mb-5">
       <tr>
         <td class="col-3 table-active border border-dark">名前</td>

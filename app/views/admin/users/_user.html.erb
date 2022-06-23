@@ -24,19 +24,15 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.id %></td>
-              <td><%= link_to user.name, user_path(user.id) %></td>
-              <td><%= user.age %></td>
+              <td><%= link_to user.name, admin_user_path(user.id) %></td>
+              <td><%= user.age_i18n %></td>
               <td><%= user.email %></td>
               <td>
-                <% if customer.is_active == true %>
-                  <div class="text-success font-weight-bold">
-                    有効
-                  </div>
-                <% else %>
-                  <div class="text-muted font-weight-bold">
-                    退会
-                  </div>
-                <% end %>
+                <% if user.is_deleted == true %>
+              <div class="text-success">有効</div>
+            <% elsif %>
+              <div class="text-danger">退会</div>
+            <% end %>
               </td>
             </tr>
           <% end %>

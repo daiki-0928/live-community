@@ -1,15 +1,20 @@
 class Admin::PostsController < ApplicationController
 
   def index
-   @post = Post.all
+   @q = Post.ransack(params[:q])
+   @posts = @q.result(distinct: true)
+   @genres = Genre.all
   end
 
   def show
+   @user = User.find(params[:id])
    @post = Post.find(params[:id])
+   @post_comments = @post.post_comments
   end
 
   def edit
    @post = Post.find(params[:id])
+   @genres = Genre.all
   end
 
   def update

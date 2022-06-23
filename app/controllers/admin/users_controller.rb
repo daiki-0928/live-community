@@ -2,11 +2,15 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show
     @user = User.find(params[:id])
+    @q = @user.posts.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    @genres = Genre.all
   end
 
   def edit
@@ -19,6 +23,15 @@ class Admin::UsersController < ApplicationController
       redirect_to admin_user_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      redirect_to admin_users_path
+    else
+      render "edit"
     end
   end
 

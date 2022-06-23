@@ -12,4 +12,10 @@ class User < ApplicationRecord
 
   validates :name, presence:true, length:{maximum:50}
   validates :email, presence:true, length:{maximum:100}
+
+  has_one_attached :profile_image
+
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : 'no_image.jpeg'
+  end
 end
