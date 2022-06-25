@@ -10,4 +10,12 @@ class Post < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  def self.search(keyword)
+    if keyword
+      Post.where(['name LIKE?', "%#{keyword}%"])
+    else
+      Post.all
+    end
+  end
 end
