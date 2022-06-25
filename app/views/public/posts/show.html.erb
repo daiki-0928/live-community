@@ -5,8 +5,8 @@
 		  <tr>
         <td>
           <%= link_to(@post.user) do %>
-            <%= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
-            <div class="post-show-name"><%= @post.user.name %></div>
+            <%#= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
+            <div class="post-show-name"><%#= @post.user.name %></div>
           <% end %>
         </td>
       </tr>

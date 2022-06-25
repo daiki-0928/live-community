@@ -1,0 +1,26 @@
+<%= form_with model: [:admin,post], class: 'text-left mb-5' do |f| %>
+  <%= render 'layouts/error_message', model: f.object %>
+  <div class="form-group">
+    <%= f.label :title, "タイトル" %>
+    <%= f.text_field :title, placeholder: "タイトルをここに", class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body, "本文" %>
+    <%= f.text_area :body, placeholder: "本文をここに", class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :genre, "病気の種類" %>
+    <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "病種を選択してください"}, {class: "form-control mb-2"}) %>
+  </div>
+
+  <div class="form-group mt-5">
+    <% if action_name == "new" %>
+      <%= f.submit "投稿する", class: 'btn-lg btn-success btn-block' %>
+    <% elsif action_name == "edit" %>
+      <%= f.submit "変更を保存", class: "btn-lg btn-success btn-block" %>
+    <% else %>
+      <%= f.submit "登録する", class: "btn-lg btn-success btn-block" %>
+    <% end %>
+  </div>
+<% end %>

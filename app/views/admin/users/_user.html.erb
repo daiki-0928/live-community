@@ -28,9 +28,9 @@
               <td><%= user.age_i18n %></td>
               <td><%= user.email %></td>
               <td>
-                <% if user.is_deleted == true %>
+                <% if user.is_deleted == false %>
               <div class="text-success">有効</div>
-            <% elsif %>
+            <% else %>
               <div class="text-danger">退会</div>
             <% end %>
               </td>

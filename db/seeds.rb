@@ -10,3 +10,9 @@ Admin.create!(
   email: 'asd@a',
   password: 'asdfgh',
 )
+
+genres = %w(膵臓癌 大腸がん 胃がん 肺がん その他)
+genres.each do |genre|
+    Genre.find_or_create_by(name: genre)
+end
+

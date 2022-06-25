@@ -1,6 +1,6 @@
 <div class="container-xxl mt-5 mx-5">
 
- <h2 class="ml-5">マイページ</h2>
+ <h2 class="ml-4"><%= @user.name %></h2>さんの登録情報
 
  <div class="user-img-area pt-3 pb-3">
       <%= image_tag @user.get_profile_image, size:'157x157', class:"profile_image d-block mx-auto" %>
