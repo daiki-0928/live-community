@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
+
 devise_scope :user do
     post 'users/sign_up' => 'public/registrations#create'
+    post 'users/sign_in' => 'public/sessions#create'
     post 'users/guest_sign_in' => 'public/sessions#guest_sign_in'
- end
+end
 
-# 顧客用
-# URL /users/sign_in ...
+# # 顧客用
+# # URL /users/sign_in ...
 devise_for :users, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'

@@ -15,6 +15,18 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
 
+   def active_for_authentication? #退会物理機能
+    super && (is_deleted == false)
+   end
+
+  def self.guest #ゲストログイン
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "ゲスト"
+      user.introduction = 'ゲストユーザーです'
+    end
+  end
+
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_image.jpeg'
   end

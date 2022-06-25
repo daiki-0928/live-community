@@ -1,5 +1,7 @@
 class Public::UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :confirm, :out]
+  before_action :authenticate_user!, only: [:edit, :update, :confirm, :withdraw]
+  before_action :ensure_correct_user, only: [:edit, :update, :confirm, :withdraw]
+  before_action :ensure_normal_user, only: [:withdraw, :update]
 
   def index
     @q = User.ransack(params[:q])
@@ -48,6 +50,20 @@ class Public::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :age, :email, :profile_image, :introduction, :is_deleted )
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to posts_path, notice: "権限がありません。"
+    end
+  end
+
+  def ensure_normal_user
+    @user = User.find(params[:id])
+    if current_user.email == 'guest@example.com'
+      redirect_to user_path(@user), alert: 'ゲストユーザーはユーザー情報の編集、退会ができません。'
+    end
   end
 
 end
