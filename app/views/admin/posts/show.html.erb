@@ -6,7 +6,7 @@
 		<table class='table col-12'>
 		  <tr>
         <td>
-            <%= link_to admin_user_path(@user) do %>
+            <%= link_to admin_user_path(@post.user) do %>
             <%= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
             <div class="post-show-name"><%= @post.user.name %></div>
           <% end %>
