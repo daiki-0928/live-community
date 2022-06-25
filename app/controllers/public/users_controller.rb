@@ -5,7 +5,7 @@ class Public::UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = User.all
+    @users = @q.result(distinct: true).where(is_deleted: false)
   end
 
   def show
