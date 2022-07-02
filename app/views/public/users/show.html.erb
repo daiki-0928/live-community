@@ -7,6 +7,8 @@
  </div>
 
   <div class="customer-information mt-5">
+    <%= render 'layouts/notice' %>
+		<%= yield %>
     <div class="row" style="margin-left: 0; margin-right: 0;">
       <h4 class="d-flex align-items-center justify-content-center" style="margin-bottom: 0;"><strong>登録情報</strong></h4>
       <% if user_signed_in? %>

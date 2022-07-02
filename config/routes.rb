@@ -22,11 +22,13 @@ devise_for :admin, controllers: {
 
 namespace :admin do
   resources :genres, only: [:index, :create, :edit, :update, :destroy]
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :show, :edit, :update, :destroy] do
+   resource :relationships, only: [:create, :destroy]
+  end
   resources :posts, only: [:index, :show, :edit, :update, :destroy] do
    resources :post_comments, only: [:destroy]
-   end
- end
+  end
+end
 
  scope module: "public" do
       root to: "homes#top"
