@@ -1,25 +1,40 @@
-<body>
-  <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-          <%= link_to  "/" do %>
-            <%#= image_tag "alexandra-khudyntseva-hXqbSgOPjSI-unsplash", size: "50x50" %>
-          <% end %>
-
+<nav class="navbar navbar-expand-xl navbar-dark bg-info shadow-sm">
+    <div class="container">
+      <% if admin_signed_in? %>
+        <a class="navbar-brand">
+          <%= image_tag 'icon.jpeg', size: "200x200" %>
+        </a>
+      <% else %>
+        <a class="navbar-brand" href="/">
+          <%= image_tag 'icon.jpeg', size: "200x200" %>
+        </a>
+      <% end %>
+<head>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li class="mr-3">
-                <%= link_to "投稿一覧", admin_posts_path, class: "btn btn-outline-dark" %>
+              <li class="nav-item">
+                <%= link_to admin_posts_path, class: "nav-link text-light btn btn-success mr-5 mb-3" do %>
+                <i class="fas fa-clipboard"></i> 投稿一覧
+                <% end %>
               </li>
 
-              <li class="mr-3">
-                <%= link_to "ユーザー一覧", admin_users_path, class: "btn btn-outline-dark" %>
+              <li class="nav-item">
+                <%= link_to admin_users_path, class: "nav-link text-light btn btn-success mr-5 mb-3" do %>
+                <i class="fas fa-users"></i> ユーザー一覧
+                <% end %>
               </li>
 
-              <li class="mr-3">
-                <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-dark" %>
+             <li class="nav-item">
+                <%= link_to admin_genres_path, class: "nav-link text-light btn btn-success mr-5 mb-3" do %>
+                <i class="fas fa-genderless"></i> ジャンル一覧
+                <% end %>
               </li>
 
-              <li class="mr-3">
-                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
+              <li class="nav-item">
+                <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light btn btn-success mr-5 mb-3" do %>
+                <i class="fas fa-sign-out-alt"></i> ログアウト
+                <% end %>
               </li>
 
             <% elsif user_signed_in? %>
@@ -51,5 +66,6 @@
               </li>
             <% end %>
         </div>
+  </head>
   </nav>
  </header>
