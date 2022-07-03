@@ -1,4 +1,43 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="main-visual">
+    <div class="main-visual-content ">
+      <div class="main-visual-text ">
+          live community
+      </div>
+       <div class="sub-visual-text ">
+          ~つながりを、感じられる場所を~<br>
+          <%= link_to "会員登録する（無料）", new_user_registration_path, class: "text-center btn btn-success mr-1 mb-1" %>
+      </div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="worries-title text-center">
+      同じ仲間とつながりたい時はありませんか?
+    </div>
+    <div class="container-fluid">
+        <div class="settle-area row text-center">
+            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                <div class="settle fadein active">
+                    <div class="settle-heading pt-4">同じ境遇の方とつながりたい</div>
+                    <%= image_tag asset_path("community.png"), class: "settle-img" %>
+                    <p class="settle-description mt-5">様々ながん関係者の投稿を閲覧できます</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                <div class="settle fadein active">
+                    <div class="settle-heading pt-4">情報を発信したい</div>
+                    <%= image_tag asset_path("post.png"), class: "settle-img" %>
+                    <p class="settle-description mt-3">日記、投稿をすることができます</p>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-3 mt-3 mx-auto">
+                 <div class="settle fadein active">
+                    <div class="settle-heading pt-4">メッセージでのやり取りがしたい</div>
+                    <%= image_tag asset_path("comment.png"), class: "settle-img" %>
+                    <p class="settle-description mt-3">投稿に対し、コメントやいいねをすることができます</p>
+                </div>
+        </div>
+    </div>
+
 <%= render 'layouts/notice' %>
 <%= yield %>

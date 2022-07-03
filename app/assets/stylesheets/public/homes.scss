@@ -1,3 +1,75 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main-visual {
+  width: 100%; /* 横幅いっぱい */
+  height: 40vw;
+  background-image: image-url("top.png");
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+
+.main-visual-content {
+  text-align: center;
+  height: -webkit-fill-available; /* 親の高さに揃える */
+}
+
+.main-visual-text {
+  margin: 0% auto;
+  line-height:6;
+  font-family: fantasy;
+  color: #0b8751;
+  font-weight: bold;
+  font-size: 4rem;
+  width: 90%;
+}
+.sub-visual-text {
+  margin: 1% auto;
+  line-height:2;
+  font-weight: bold;
+  font-size: 2rem;
+  width: 80%;
+}
+
+.worries-title {
+    margin-top: 5%;
+    font-size: 35px;
+    color: #0b8751;
+    position: relative;
+    font-weight: bold;
+}
+
+.worries-title:after {
+    display: block;
+    content: "";
+    width: 100px;
+    height: 5px;
+    background: #aaaaaa;
+    margin: 10px auto 30px;
+}
+
+.settle-title {
+    margin: 5% auto;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 35%;
+    background-color: #38b6ff;
+    border-radius: 50%;
+}
+
+.settle-img {
+   width: 50%;
+}
+
+.settle-area .settle {
+    background: #fff;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+    height: 100%;
+}
+
+.settle-area .settle .settle-heading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5% 0;
+}

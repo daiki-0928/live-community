@@ -1,24 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Livetest</title>
+    <title>Live_community</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-  <div class="footerFixed">
-
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
-  
-  </div>
 
   <body>
-    <%= yield %>
+
+    <div class="footerFixed">
+
+      <header>
+        <%= render 'layouts/header' %>
+      </header>
+
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+      <%= yield %>
+
+      <footer>
+        <div class="text-center web-copyright pt-3 pb-3">
+          Copyright © live-community
+        </div>
+      </footer>
+
+    </div>
+
   </body>
 </html>
