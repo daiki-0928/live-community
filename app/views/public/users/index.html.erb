@@ -1,5 +1,5 @@
 <div class="text-center mt-5 mb-5">
-  <h3 class="heading col-10 col-md-4 col-xl-3">ユーザー一覧</h3>
+  <h2 class="form-title mb-5">ユーザー一覧</h2>
   <div class="flame container mt-5 mb-5">
     <div class="form-group">
       <%= search_form_for @q do |f| %>
@@ -8,7 +8,7 @@
           <%= f.search_field :name_cont, placeholder: "ユーザー名検索", class: 'form-control' %>
         </div>
         <div class="form-width col-10 col-md-8 col-xl-6 text-center">
-          <%= f.submit "検索", class: "btn btn-info ml-3 mb-1" %>
+          <%= f.submit "検索", class: "btn btn-success ml-3 mb-1" %>
          </div>
       </div>
     </div>
@@ -30,6 +30,9 @@
           <h5 class = "card-title text_omit">
             <%= link_to user.name, user %>
           </h5>
+          <h6 class = "card-subtitle mb-1">
+            <div>年齢: <%= user.age_i18n %></div>
+          </h6>
           <h6 class = "card-subtitle">
             <div>ユーザーID: <%= user.id %></div>
           </h6>

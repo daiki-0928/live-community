@@ -2,10 +2,16 @@
   <% posts.each do |post| %>
     <div class="col-xs-12 col-md-6 col-lg-4 mt-3">
       <div class = "card">
+        <div class = "text_omit ml-3 mt-3">
+          <%= link_to(post.user) do %>
+            <%= image_tag post.user.get_profile_image, size:'40x40', class:"profile_image" %>
+            <%= post.user.name %>
+          <% end %>
+        </div>
         <div class = "card-body">
-          <h5 class = "card-title text_omit">
-            <%= link_to post.title, post, class: "post_#{post.id}" %>
-          </h5>
+          <h6 class = "card-title text_omit">
+            タイトル：<%= link_to post.title, post, class: "post_#{post.id}" %>
+          </h6>
           <h6 class = "card-subtitle">
             <div>病種：<%= post.genre.name %></div>
             <div>
