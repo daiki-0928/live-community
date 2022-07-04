@@ -17,3 +17,15 @@
 body {
   background-image: image-url("background.jpg");
 }
+
+.form-title {
+  color: #0b8751;
+}
+
+.form-wrapper {
+    display: inline-block;
+    width: 60%;
+    background: #fff;
+    padding: 3% 5%;
+    box-shadow: 10px 5px 5px green;
+}

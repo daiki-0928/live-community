@@ -1,9 +1,9 @@
 <div class='container'>
   <div class='flame row mt-3 test'>
-		<h2 class="heading text-center col-10 col-md-4 col-xl-3">投稿詳細</h2>
+		<h2 class="heading text-center">投稿詳細</h2>
 		<%= render 'layouts/notice' %>
 		<%= yield %>
-		<table class='table col-12'>
+		<table class='table col-2'>
 		  <tr>
         <td>
           <%= link_to(@post.user) do %>
@@ -56,8 +56,8 @@
     </table>
 
   <div class="flame row mt-5 mb-3">
-    <h4 class="sub_heading mt-2">コメント</h4>
-    <div class="post-comments-index w-100">
+    <h4 class="sub_heading mt-1">コメント</h4>
+    <div class="post-comments-index justify-content-center">
       <%= render "public/post_comments/index", post: @post, post_comments: @post_comments %>
     </div>
     <%#= paginate @post_comments, :param_name => "post_comment_page" %>
