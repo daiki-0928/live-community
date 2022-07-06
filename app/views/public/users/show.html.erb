@@ -1,31 +1,23 @@
 <div class="container-xxl mt-5 mx-5">
+<h2 class="text-center"><%= @user.name %>さん</h2>
 
- <h2 class="justify-content-center"><%= @user.name %></h2>さんの登録情報
-
- <div class="row">
-   <div class="user-img-area col-sm-6">
-        <%= image_tag @user.get_profile_image, size:'200x200', class:"profile_image d-block mx-auto" %>
-   </div>
-
-    <div class="customer-information col-sm-6">
-      <%= render 'layouts/notice' %>
-
-      <table class="table table-bordered mt-3 mb-5">
-        <tr>
-          <td class="col-3 table-active border border-dark">名前</td>
-          <td class="border border-dark"><%= @user.name %></td>
-        </tr>
-        <tr>
-          <td class="col-3 table-active border border-dark">年齢</td>
-          <td class="border border-dark"><%= @user.age_i18n %></td>
-        </tr>
-        <tr>
-          <td class="col-3 table-active border border-dark">自己紹介</td>
-          <td class="border border-dark"><%= @user.introduction %></td>
-        </tr>
-      </table>
+ <div class="row justify-content-center">
+   <div class="form-wrapper mb-5">
+     <div class="col-3">
+      <%= image_tag @user.get_profile_image, size:'200x200', class:"profile_image d-block mx-auto" %>
+     </div>
+    <div class="float-right">
+      <div class="col-12">
+        <h5 class="row-title">ユーザー情報</h5>
+        <p class="row-text">名前：<%= @user.name %></p>
+        <p class="row-text">年齢：<%= @user.age_i18n %></p>
+        <p class="row-text">自己紹介：<%= @user.introduction %></p>
+        <p class="row-text">登録日：<%= @user.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
     </div>
-  </div>
+   </div>
+ </div>
+
 
   <div class="row">
         <% if user_signed_in? %>
