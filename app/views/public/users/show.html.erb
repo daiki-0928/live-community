@@ -30,7 +30,41 @@
 
   <div class="text-center mt-5 mb-5">
   　<h2 class="form-title mb-5">過去の投稿</h2>
-      <%= render "post_index", posts: @posts, params_name: "posts_page" %>
+    <div class='flame container mt-5 mb-5'>
+      <div class="row search_form">
+        <%= search_form_for @q, url: user_path  do |f| %>
+          <%= f.search_field :title_cont, placeholder: "投稿タイトル検索", class: "post-form w-100" %>
+          <%= f.label :genre_id, "ジャンル" %>
+          <%= f.collection_select :genre_id_eq, @genres, :id, :name, include_blank: '指定なし' %>
+          <%= f.submit "検索" %>
+        <% end %>
+      </div>
+      <div class = "row search_form">
+        <%= sort_link(@q, :created_at, "新しい順/低い順", default_order: :desc ) %> |
+        <%= sort_link(@q, :favorites_count, "いいね順", default_order: :desc ) %>
+      </div>
+      <div class="tablist row nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
+          <span class="font-weight-bold text-info"><i class="fas fa-list"></i>投稿</span><span class="badge badge-light"><%= @user.posts.count %></span>
+        </a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
+          <span class="font-weight-bold text-info"><i class="fas fa-heart"></i>いいね</span><span class="post-favorites-counter badge badge-light"><%= render "public/favorites/counter", user: @user %></span>
+        </a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
+          <span class="font-weight-bold text-info"><i class="fas fa-comments"></i>コメント</span><span class="badge badge-light"><%= @comment_posts.count %></span>
+        </a>
+      </div>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+          <%= render "post_index", posts: @posts, params_name: "posts_page" %>
+        </div>
+        <div class="favorite_posts_index tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <%= render "post_index", posts: @favorite_posts, params_name: "favorite_posts_page" %>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <%= render "post_index", posts: @comment_posts, params_name: "comment_posts_page" %>
+        </div>
+      </div>
+     </div>
   </div>
-
 </div>

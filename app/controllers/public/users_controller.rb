@@ -15,11 +15,11 @@ class Public::UsersController < ApplicationController
     @q = Post.ransack(params[:q])
     # @q = @user.posts.ransack(params[:q])
     # 投稿一覧
-    @posts = @q.result(distinct: true).where(user_id: @user)
+    @posts = @q.result(distinct: true).where(user_id: @user).page(params[:page]).per(3)
     # いいね一覧
-    @favorite_posts = @q.result(distinct: true).joins(:favorites).where(favorites: {user_id: @user.id})
+    @favorite_posts = @q.result(distinct: true).joins(:favorites).where(favorites: {user_id: @user.id}).page(params[:favorite_posts_page]).per(6).order(created_at: "DESC")
     # コメント一覧
-    @comment_posts = @q.result(distinct: true).joins(:post_comments).where(post_comments: {user_id: @user.id})
+    @comment_posts = @q.result(distinct: true).joins(:post_comments).where(post_comments: {user_id: @user.id}).page(params[:comment_posts_page]).per(6).order(created_at: "DESC")
   end
 
   def edit
