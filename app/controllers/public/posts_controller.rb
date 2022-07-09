@@ -4,13 +4,13 @@ class Public::PostsController < ApplicationController
 
   def index
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).page(params[:page]).per(6).order(created_at: "DESC")
     @genres = Genre.all
   end
 
   def show
     @post = Post.find(params[:id])
-    @post_comments = @post.post_comments
+    @post_comments = @post.post_comments.page(params[:post_comment_page]).per(5).order(created_at: "DESC")
     @post_comment = PostComment.new
   end
 

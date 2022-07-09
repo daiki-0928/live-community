@@ -36,7 +36,7 @@
           <%= f.search_field :title_cont, placeholder: "投稿タイトル検索", class: "post-form w-100" %>
           <%= f.label :genre_id, "ジャンル" %>
           <%= f.collection_select :genre_id_eq, @genres, :id, :name, include_blank: '指定なし' %>
-          <%= f.submit "検索" %>
+          <%= f.submit "検索", class: "btn btn-success"  %>
         <% end %>
       </div>
       <div class = "row search_form">
@@ -45,7 +45,7 @@
       </div>
       <div class="tablist row nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
-          <span class="font-weight-bold text-info"><i class="fas fa-list"></i>投稿</span><span class="badge badge-light"><%= @user.posts.count %></span>
+          <span class="font-weight-bold text-info"><i class="fas fa-clipboard"></i>投稿</span><span class="badge badge-light"><%= @user.posts.count %></span>
         </a>
         <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
           <span class="font-weight-bold text-info"><i class="fas fa-heart"></i>いいね</span><span class="post-favorites-counter badge badge-light"><%= render "public/favorites/counter", user: @user %></span>

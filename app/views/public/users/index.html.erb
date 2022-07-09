@@ -13,8 +13,8 @@
       </div>
     </div>
       <% end %>
-    <div class="row search_form">
-      <%= sort_link(@q, :created_at, "古い順/新しい順") %>
+    <div class="search_form">
+      <%= sort_link(@q, :created_at, "新しい順/古い順", default_order: :desc ) %>
     </div>
 
 <div class="row">
