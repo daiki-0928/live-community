@@ -1,56 +1,36 @@
 <div class="text-center mt-5 mb-5">
   <h2 class="form-title mb-5">投稿詳細</h2>
-		<%= render 'layouts/notice' %>
-		<%= yield %>
-		<table class='card col-4'>
-		  <tr>
-        <td>
-          <%= link_to(@post.user) do %>
-            <%= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
-            <div class="post-show-name"><%= @post.user.name %></div>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= @post.title %></td>
-      </tr>
-      <tr>
-        <td><%= @post.body %></td>
-      </tr>
-      <tr>
-        <td>病気の種類：<%= @post.genre.name %></td>
-      </tr>
 
-      <tr>
-        <td class="d-flex">
-          <div>いいね数：</div>
-          <div class="favorite_buttons_<%= @post.id %>">
+  <div class="post-card bg-light">
+  <div class="card-header">
+    <%= @post.title %>
+    #<%= @post.genre.name %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= @post.body %></p>
+      <div>
+          <i class="favorite_buttons_<%= @post.id %>">
             <% if user_signed_in? %>
-              <%= render "public/favorites/btn", post: @post %>
+            <%= render "public/favorites/btn", post: @post %>
             <% else %>
-              <i class="fas fa-heart" aria-hidden="true"></i>
-              <%= @post.favorites.count %>
+          <i class="fas fa-heart" aria-hidden="true"></i>
+            <%= post.favorites.count %>
             <% end %>
-          </div>
-        </td>
-      </tr>
-
-      <tr>
-        <td class="d-flex">
-          <div>コメント数：</div>
-          <div class="post-comments-counter">
+          </i>
+          <i class="far fa-comment-dots ml-2"></i>
             <%= render "public/post_comments/counter", post: @post %>
-          </div>
-        </td>
-      </tr>
-
+        </div>
+      <footer class="blockquote-footer"><%= @post.created_at.strftime('%Y/%m/%d') %></footer>
       <% if @post.user == current_user %>
         <td>
           <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id} mr-5" %>
           <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
         </td>
       <% end %>
-    </table>
+    </blockquote>
+  </div>
+  </div>
 
   <div class="text-center mt-5 mb-5">
    <h2 class="form-title mb-2">コメント</h2>
