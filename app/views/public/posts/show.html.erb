@@ -1,9 +1,8 @@
-<div class='container'>
-  <div class='flame row mt-3 test'>
-		<h2 class="heading text-center">投稿詳細</h2>
+<div class="text-center mt-5 mb-5">
+  <h2 class="form-title mb-5">投稿詳細</h2>
 		<%= render 'layouts/notice' %>
 		<%= yield %>
-		<table class='table col-2'>
+		<table class='card col-4'>
 		  <tr>
         <td>
           <%= link_to(@post.user) do %>
@@ -45,8 +44,6 @@
         </td>
       </tr>
 
-
-
       <% if @post.user == current_user %>
         <td>
           <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id} mr-5" %>
@@ -55,20 +52,26 @@
       <% end %>
     </table>
 
-  <div class="flame row mt-5 mb-3">
-    <h4 class="sub_heading mt-1">コメント</h4>
-    <div class="post-comments-index justify-content-center">
-      <%= render "public/post_comments/index", post: @post, post_comments: @post_comments %>
-    </div>
-    <%#= paginate @post_comments, :param_name => "post_comment_page" %>
+  <div class="text-center mt-5 mb-5">
+   <h2 class="form-title mb-2">コメント</h2>
+    <div class="row post-comments">
+      <div class="comments col">
+        <div class="d-flex justify-content-center">
+          <div>コメント全</div>
+         <div class="post-comments-counter">
+          <%= render "public/post_comments/counter", post: @post %>
+         </div>
+          <div>件</div>
+        </div>
 
-    <span id="flash"></span> <!-- Flash message for jQuery -->
-    <div class="comments_error">
-      <%= render 'layouts/error_message', model: @post_comment %>
-    </div>
-    <div class="col-12">
-      <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
-    </div>
+       <div class="post-comments-index">
+        <%= render "public/post_comments/index", post: @post, post_comments: @post_comments %>
+       </div>
+      </div>
+    <%#= paginate @post_comments, :param_name => "post_comment_page" %>
+       <div class="post-comments-form col mt-5">
+        <%= render "public/post_comments/form", post: @post, post_comment: @post_comment %>
+       </div>
   </div>
 
 </div>
