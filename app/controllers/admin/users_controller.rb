@@ -3,13 +3,13 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.ransack(params[:q])
-    @users = @q.result(distinct: true)
+    @users = @q.result(distinct: true).where(is_deleted: false).page(params[:page]).per(6)
   end
 
   def show
     @user = User.find(params[:id])
     @q = @user.posts.ransack(params[:q])
-    @posts = @q.result(distinct: true)
+    @posts = @q.result(distinct: true).where(user_id: @user).page(params[:page]).per(3)
     @genres = Genre.all
   end
 
