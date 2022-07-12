@@ -1,54 +1,46 @@
+<div class="text-center mt-5 mb-5">
+  <h2 class="form-title mb-5">投稿詳細</h2>
 
-
-<div class='container'>
-  <div class='flame row mt-3 test'>
-		<h2 class="heading text-center col-10 col-md-4 col-xl-3">投稿詳細</h2>
-		<table class='table col-12'>
-		  <tr>
-        <td>
-            <%= link_to admin_user_path(@post.user) do %>
-            <%= image_tag @post.user.get_profile_image, size:"60x60", class:"profile_image" %>
-            <div class="post-show-name"><%= @post.user.name %></div>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td><%= @post.title %></td>
-      </tr>
-      <tr>
-        <td><%= @post.body %></td>
-      </tr>
-      <tr>
-        <td>ジャンル名：<%= @post.genre.name %></td>
-      </tr>
-      <tr>
-        <td class="d-flex">
-          <div>いいね数：</div>
-          <div class="favorite_buttons_<%= @post.id %>">
+  <div class="post-card bg-light">
+  <div class="card-header">
+    <%= @post.title %>
+    #<%= @post.genre.name %>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p><%= @post.body %></p>
+        <div class="favorite_buttons_<%= @post.id %>">
             <i class="fas fa-heart" aria-hidden="true"></i>
-            <%= @post.favorites.count %>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td class="d-flex">
-          <div>コメント数：</div>
-          <div class="post-comments-counter">
-            <%= render "public/post_comments/comment_counter", post: @post %>
-          </div>
-        </td>
-      </tr>
+              <%= @post.favorites.count %>
+            <i class="far fa-comment-dots ml-2"></i>
+              <%= render "public/post_comments/counter", post: @post %>
+        </div>
+      <footer class="blockquote-footer"><%= @post.created_at.strftime('%Y/%m/%d') %></footer>
         <td>
           <%= link_to '編集', edit_admin_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id} mr-5" %>
           <%= link_to '削除', admin_post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
         </td>
-    </table>
+    </blockquote>
+  </div>
   </div>
 
-  <div class="flame row mt-5 mb-3">
-    <h4 class="sub_heading mt-2">コメント</h4>
-    <div class="post-comments-index w-100">
-      <%= render "admin/post_comments/index", post: @post, post_comments: @post_comments %>
-    </div>
+  <div class="text-center mt-5 mb-5">
+   <h2 class="form-title mb-2">コメント</h2>
+    <div class="row post-comments justify-content-center">
+      <div class="comments">
+        <div class="d-flex justify-content-center">
+          <div>コメント全</div>
+         <div class="post-comments-counter">
+          <%= render "public/post_comments/counter", post: @post %>
+         </div>
+          <div>件</div>
+        </div>
+
+       <div class="post-comments-index">
+        <%= render "public/post_comments/index", post: @post, post_comments: @post_comments %>
+       </div>
+      </div>
+    <%#= paginate @post_comments, :param_name => "post_comment_page" %>
   </div>
+
 </div>

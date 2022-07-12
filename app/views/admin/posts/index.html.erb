@@ -9,7 +9,7 @@
         <div class="form-width col-10 col-md-8 col-xl-6 text-center">
           <%= f.label :genre_id, "ジャンル" %>
           <%= f.collection_select :genre_id_eq, @genres, :id, :name, include_blank: '指定なし' %>
-          <%= f.submit "検索", class: "btn btn-info ml-3 mb-1" %>
+          <%= f.submit "検索", class: "btn btn-success ml-3 mb-1" %>
         </div>
       </div>
     <% end %>
