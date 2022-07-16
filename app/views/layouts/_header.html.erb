@@ -2,14 +2,16 @@
     <div class="container">
       <% if admin_signed_in? %>
         <a class="navbar-brand">
-          <%= image_tag 'icon.jpeg', size: "200x200" %>
+          <%= image_tag 'icon.jpeg', size: "180x30" %>
         </a>
       <% else %>
         <a class="navbar-brand" href="/">
-          <%= image_tag 'icon.jpeg', size: "200x200" %>
+          <%= image_tag 'icon.jpeg', size: "180x30" %>
         </a>
       <% end %>
-<head>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
@@ -87,7 +89,7 @@
                 <% end %>
               </li>
             <% end %>
+          </ul>
         </div>
-  </head>
+      </div>
   </nav>
- </header>

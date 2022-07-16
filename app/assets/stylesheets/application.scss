@@ -18,6 +18,14 @@ body {
   background-image: image-url("background.jpg");
 }
 
+.navbar {
+  background: linear-gradient(to right, #38b6ff, #4edae2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.profile_image {
+  border-radius: 50%;
+}
+
 .form-title {
   color: #0b8751;
 }
