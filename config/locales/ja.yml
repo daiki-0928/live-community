@@ -20,3 +20,18 @@ ja:
         previous: "&lsaquo; 前"
         next: "次 &rsaquo;"
         truncate: "..."
+
+    activerecord:
+      attributes:
+        user:
+          name: ユーザー名
+          email: メールアドレス
+          introduction: 自己紹介
+        post:
+          title: タイトル
+          body: 本文
+          genre: ジャンル
+        genre:
+          name: ジャンル名
+        post_comment:
+          comment: コメント
