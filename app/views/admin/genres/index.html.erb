@@ -2,18 +2,18 @@
   <div class="row justify-content-md-center">
     <div class="col-3 mt-5">
 
- <%= form_with model: [:admin,@genre] do |f| %>
-  <div class="form text-center">
-    <%= f.label :name, "ジャンルの追加" %>
-    <%= f.text_field :name, placeholder: "病種をここに", class: 'form-control' %>
-  </div>
-  <div>
-   <%= f.submit '新規登録', class: "btn btn-success btn-block mt-2" %>
-  </div>
-   <% end %>
-   </div>
+     <%= form_with model: [:admin,@genre] do |f| %>
+     <div class="form text-center">
+     <%= f.label :name, "ジャンルの追加" %>
+     <%= f.text_field :name, placeholder: "病種をここに", class: 'form-control' %>
+     </div>
+     <div>
+     <%= f.submit '新規登録', class: "btn btn-success btn-block mt-2" %>
+     </div>
+     <% end %>
+    </div>
 
-  <div class="row col-4 mt-3">
+    <div class="row col-4 mt-3">
       <table class="table bg-light">
         <thead>
           <tr>

@@ -1,13 +1,13 @@
 <div class="row justify-content-md-center">
   <div class="col-3 mt-5">
 　　<%= form_with model: [:admin,@genre] do |f| %>
-  <div class="form text-center">
+    <div class="form text-center">
     <%= f.label :name, "ジャンルの編集" %>
     <%= f.text_field :name, placeholder: "病種をここに", class: 'form-control' %>
+    </div>
+    <div>
+    <%= f.submit '変更を保存', class: "btn btn-success btn-block mt-2" %>
+    </div>
+    <% end %>
   </div>
-  <div>
-   <%= f.submit '変更を保存', class: "btn btn-success btn-block mt-2" %>
-  </div>
-   <% end %>
-  </div>
- </div>
+</div>
