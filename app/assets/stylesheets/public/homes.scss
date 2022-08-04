@@ -41,15 +41,6 @@
     font-weight: bold;
 }
 
-.worries-title:after {
-    display: block;
-    content: "";
-    width: 100px;
-    height: 5px;
-    background: #aaaaaa;
-    margin: 10px auto 30px;
-}
-
 .settle-title {
     margin: 5% auto;
     font-size: 1.5rem;
@@ -61,16 +52,4 @@
 
 .settle-img {
    width: 50%;
-}
-
-.settle-area .settle {
-    background: #fff;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.12);
-    height: 100%;
-}
-
-.settle-area .settle .settle-heading {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin: 5% 0;
 }
