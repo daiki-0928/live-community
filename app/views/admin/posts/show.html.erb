@@ -2,10 +2,10 @@
   <h2 class="form-title mb-5">投稿詳細</h2>
 
   <div class="post-card bg-light">
-  <div class="card-header">
+  　<div class="card-header">
     <%= @post.title %>
     #<%= @post.genre.name %>
-  </div>
+  　</div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><%= @post.body %></p>
@@ -42,5 +42,4 @@
       </div>
     <%= paginate @post_comments, :param_name => "post_comment_page" %>
   </div>
-
 </div>
