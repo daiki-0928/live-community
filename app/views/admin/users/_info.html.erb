@@ -31,11 +31,11 @@
               <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
             </tr>
         </tbody>
-      </table>
+   </table>
 
     <div class="col-xs-12 col-md-3 text-center mw-100 mx-auto mb-2">
       <%= link_to "ユーザー情報編集", edit_admin_user_path(user), class: "btn btn-success" %>
       <%= link_to "削除する", admin_user_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
-   </div>
+    </div>
 </div>
 
